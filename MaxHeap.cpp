@@ -1,6 +1,7 @@
 #include "MaxHeap.h"
 #include <algorithm>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -21,13 +22,17 @@ void MaxHeap::insert(int value){
   }
 }
 
+//print function
 void MaxHeap::print(){
+  //print every value
   for (int i = 1; i <= size; i++) {
     cout << heap[i] << " ";
   }
   cout << endl;   
 }
 
+//remove root
+//help from copilot
 int MaxHeap::removeMax(){
   if (size == 0){
     cout << "error" << endl;
@@ -63,4 +68,12 @@ int MaxHeap::removeMax(){
   }
   cout << maxValue << endl;
   return maxValue;
+}
+
+void MaxHeap::removeAll(){
+  while (size > 0) {
+    int removed = removeMax();
+    cout << removed << " ";
+  }
+  cout << endl;
 }
