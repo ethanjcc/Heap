@@ -77,3 +77,21 @@ void MaxHeap::removeAll(){
   }
   cout << endl;
 }
+
+void MaxHeap::printTree(int heap[], int lastIndex, int curIndex, int depth){
+  if ((curIndex * 2)+1 < lastIndex) {
+    printTree(heap, lastIndex, (curIndex*2)+1, depth + 1);
+  }
+  for (int i = 0; i < depth; i++){
+    cout << "\t";
+  }
+  cout << heap[curIndex] << endl;
+
+  if ((curIndex * 2) < lastIndex) {
+    printTree(heap, lastIndex, (curIndex*2), depth + 1);
+  }
+  for (int i = 0; i < depth; i++){
+    cout << "\t";
+  }
+  cout << heap[curIndex] << endl;
+}

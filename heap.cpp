@@ -52,6 +52,14 @@ int main() {
     else if (strcmp(input, "DELALL") == 0) {
       h.removeAll();
     }
+
+    else if (strcmp(input, "PICTURE") == 0) {
+      int heap[101];
+      int lastIndex = size + 1;
+      int curIndex = i;
+      int depth = 0;
+      h.printTree(heap, lastIndex, curIndex, depth);
+    }
     
     else if (strcmp(input, "QUIT") == 0) {
       return 0;
