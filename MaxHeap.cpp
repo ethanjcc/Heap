@@ -14,12 +14,17 @@ void MaxHeap::insert(int value){
   //increase size by 1 
   size++;
   heap[size] = value;
+  //cout << value << endl;
+  //cout << size << endl;
   int i = size;
   //check for if it is larger than the parent
   while (i > 1 && heap[i] > heap[i/2]) {
     swap(heap[i], heap[i/2]);
     i = i/2;
   }
+  /*for (int a = 0; a < size + 1; a++) {
+    cout << heap[a] << endl;
+    }*/
 }
 
 //print function
@@ -69,7 +74,7 @@ int MaxHeap::removeMax(){
   cout << maxValue << endl;
   return maxValue;
 }
-
+//remove all values
 void MaxHeap::removeAll(){
   while (size > 0) {
     int removed = removeMax();
@@ -77,7 +82,7 @@ void MaxHeap::removeAll(){
   }
   cout << endl;
 }
-
+//print a visual binary tree
 void MaxHeap::printTree(int heap[], int lastIndex, int curIndex, int depth){
   if ((curIndex * 2)+1 < lastIndex) {
     printTree(heap, lastIndex, (curIndex*2)+1, depth + 1);
@@ -90,8 +95,4 @@ void MaxHeap::printTree(int heap[], int lastIndex, int curIndex, int depth){
   if ((curIndex * 2) < lastIndex) {
     printTree(heap, lastIndex, (curIndex*2), depth + 1);
   }
-  for (int i = 0; i < depth; i++){
-    cout << "\t";
-  }
-  cout << heap[curIndex] << endl;
 }
